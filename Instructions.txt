@@ -1,0 +1,27 @@
+Configure the file application\config\config.php
+
+	$config['base_url'] = 'http://localhost/cop/'; // Should be base url where index.php is located
+
+Create database tables
+
+	CREATE TABLE `user` (
+	  `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	  `email` varchar(255) DEFAULT NULL,
+	  `password` varchar(100) NOT NULL,
+	  `verification` varchar(15) DEFAULT NULL,
+	  `status` tinyint(1) unsigned NOT NULL,
+	  PRIMARY KEY (`user_id`)
+	) ENGINE=InnoDB DEFAULT CHARSET=ascii;
+
+	CREATE TABLE `news` (
+	  `news_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	  `title` varchar(255) NOT NULL,
+	  `text` text NOT NULL,
+	  `image` tinytext NOT NULL,
+	  `date_add` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	  `user_id` int(10) unsigned NOT NULL,
+	  PRIMARY KEY (`news_id`)
+	) ENGINE=InnoDB DEFAULT CHARSET=ascii;
+
+
+Point your webbrowser to http://localhost/cop/
